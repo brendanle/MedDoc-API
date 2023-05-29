@@ -1,4 +1,6 @@
 const express = require('express');
+const { v4: uuidv4 } = require('uuid');
+const fs = require('fs');
 const app = express();
 const PORT = 8080;
 
@@ -17,13 +19,16 @@ app.get('/customer-data', (req, res) => {
 app.post('/customer-data', (req, res) => {
 
     const { name, age } = req.body;
+    const id = uuidv4();
 
     const newCustomerData = {
+        id: id,
         name: name,
         age: age
     };
 
     customerData.push(newCustomerData);
+    fs.writeFileSync('customer-data.json', JSON.stringify(customerData));
 
     res.status(201).json({
         message: 'Customer data created successfully',
