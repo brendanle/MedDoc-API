@@ -28,7 +28,7 @@ app.post('/customer-data', (req, res) => {
     };
 
     customerData.push(newCustomerData);
-    fs.writeFileSync('customer-data.json', JSON.stringify(customerData));
+    // fs.writeFileSync('customer-data.json', JSON.stringify(customerData));
 
     res.status(201).json({
         message: 'Customer data created successfully',
@@ -50,7 +50,7 @@ app.delete('/customer-data/:id', (req, res) => {
     }
 
     customerData.splice(customerIndex, 1);
-    fs.writeFileSync('customer-data.json', JSON.stringify(customerData));
+    // fs.writeFileSync('customer-data.json', JSON.stringify(customerData));
 
     res.status(200).json({
         message: 'Customer deleted successfully'
