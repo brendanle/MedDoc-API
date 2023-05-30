@@ -36,3 +36,24 @@ app.post('/customer-data', (req, res) => {
     });
 
 });
+
+app.delete('/customer-data/:id', (req, res) => {
+
+    const { id } = req.params;
+
+    const customerIndex = customerData.findIndex(customer => customer.id === id);
+
+    if (customerIndex === -1) {
+        return res.status(404).json({
+            message: 'Customer not found'
+        });
+    }
+
+    customerData.splice(customerIndex, 1);
+    fs.writeFileSync('customer-data.json', JSON.stringify(customerData));
+
+    res.status(200).json({
+        message: 'Customer deleted successfully'
+    });
+
+});
