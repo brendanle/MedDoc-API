@@ -15,6 +15,6 @@ Locate the folder and open the index.html file. You may run the following comman
 node server.js
 ```
 
-![App Screenshot](https://cdn.discordapp.com/attachments/1102372755187445860/1114323210180239501/Screenshot_2023-06-02_at_6.42.30_PM.png)
+![App Screenshot](https://cdn.discordapp.com/attachments/1102372755187445860/1114325783327019089/Screenshot_2023-06-02_at_6.52.46_PM.png)
 
 ![App Screenshot](https://cdn.discordapp.com/attachments/1102372755187445860/1114323358729908284/Screenshot_2023-06-02_at_6.43.08_PM.png)
