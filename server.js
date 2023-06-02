@@ -23,7 +23,7 @@ app.get('/patient-data', (req, res) => {
 });
 
 app.post('/patient-data', (req, res) => {
-    const { fname, mname, lname, age, phone_number, address, birth_date, weight_lbs, height_cm } = req.body;
+    const { fname, mname, lname, age, phone_number, address, birth_date, weight_lbs, height_cm, notes } = req.body;
     const id = uuidv4();
 
     const newPatientData = {
@@ -36,7 +36,8 @@ app.post('/patient-data', (req, res) => {
         address: address,
         birth_date: birth_date,
         weight_lbs: weight_lbs,
-        height_cm: height_cm
+        height_cm: height_cm,
+        notes: notes
     };
 
     patientData.push(newPatientData);
