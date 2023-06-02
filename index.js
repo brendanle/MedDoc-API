@@ -10,18 +10,18 @@ app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
 });
 
-const customerData = [];
+const patientData = [];
 
-app.get('/customer-data', (req, res) => {
-    res.status(200).json(customerData);
+app.get('/patient-data', (req, res) => {
+    res.status(200).json(patientData);
 });
 
-app.post('/customer-data', (req, res) => {
+app.post('/patient-data', (req, res) => {
 
     const { name, age, phone_number, address, birth_date, weight_lbs, height_cm } = req.body;
     const id = uuidv4();
 
-    const newCustomerData = {
+    const newPatientData = {
         id: id,
         name: name,
         age: age,
@@ -32,31 +32,31 @@ app.post('/customer-data', (req, res) => {
         height_cm: height_cm
     };
 
-    customerData.push(newCustomerData);
+    patientData.push(newPatientData);
 
     res.status(201).json({
-        message: 'Customer data created successfully',
-        customerData: newCustomerData
+        message: 'Patient data created successfully',
+        patientData: newPatientData
     });
 
 });
 
-app.delete('/customer-data/:id', (req, res) => {
+app.delete('/patient-data/:id', (req, res) => {
 
     const { id } = req.params;
 
-    const customerIndex = customerData.findIndex(customer => customer.id === id);
+    const patientIndex = patientData.findIndex(patient => patient.id === id);
 
-    if (customerIndex === -1) {
+    if (patientIndex === -1) {
         return res.status(404).json({
-            message: 'Customer not found'
+            message: 'Patient not found'
         });
     }
 
-    customerData.splice(customerIndex, 1);
+    patientData.splice(patientIndex, 1);
 
     res.status(200).json({
-        message: 'Customer deleted successfully'
+        message: 'Patient deleted successfully'
     });
 
 });
