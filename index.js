@@ -18,17 +18,21 @@ app.get('/customer-data', (req, res) => {
 
 app.post('/customer-data', (req, res) => {
 
-    const { name, age } = req.body;
+    const { name, age, phone_number, address, birth_date, weight_lbs, height_cm } = req.body;
     const id = uuidv4();
 
     const newCustomerData = {
         id: id,
         name: name,
-        age: age
+        age: age,
+        phone_number: phone_number,
+        address: address,
+        birth_date: birth_date,
+        weight_lbs: weight_lbs,
+        height_cm: height_cm
     };
 
     customerData.push(newCustomerData);
-    // fs.writeFileSync('customer-data.json', JSON.stringify(customerData));
 
     res.status(201).json({
         message: 'Customer data created successfully',
@@ -50,7 +54,6 @@ app.delete('/customer-data/:id', (req, res) => {
     }
 
     customerData.splice(customerIndex, 1);
-    // fs.writeFileSync('customer-data.json', JSON.stringify(customerData));
 
     res.status(200).json({
         message: 'Customer deleted successfully'
