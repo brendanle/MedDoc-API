@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.add-patient, .delete-patient {
+    width: 50%;
+    box-sizing: border-box;
+}
