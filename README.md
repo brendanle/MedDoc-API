@@ -23,3 +23,4 @@ node server.js
 - Deploy *PUT* and *PATCH* methods
 - Enhance safety measures through the use of data privatization for the API
 - Include further details for patients
+- Include an administrative dashboard to allow seamless access to the methods
