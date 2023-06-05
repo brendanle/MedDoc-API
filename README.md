@@ -18,3 +18,8 @@ node server.js
 ![App Screenshot](https://cdn.discordapp.com/attachments/1102372755187445860/1114325783327019089/Screenshot_2023-06-02_at_6.52.46_PM.png)
 
 ![App Screenshot](https://cdn.discordapp.com/attachments/1102372755187445860/1114323358729908284/Screenshot_2023-06-02_at_6.43.08_PM.png)
+
+## To-Do:
+- Deploy *PUT* and *PATCH* methods
+- Enhance safety measures through the use of data privatization for the API
+- Include further details for patients
