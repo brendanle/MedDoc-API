@@ -23,6 +23,7 @@ app.get('/patient-data', (req, res) => {
 });
 
 app.post('/patient-data', (req, res) => {
+
     const { fname, mname, lname, age, phone_number, address, birth_date, weight_lbs, height_cm, notes } = req.body;
     const id = uuidv4();
 
@@ -46,11 +47,12 @@ app.post('/patient-data', (req, res) => {
         message: 'Patient data created successfully',
         patientData: newPatientData
     });
+
 });
 
 app.delete('/patient-data/:id', (req, res) => {
-    const { id } = req.params;
 
+    const { id } = req.params;
     const patientIndex = patientData.findIndex(patient => patient.id === id);
 
     if (patientIndex === -1) {
@@ -64,4 +66,43 @@ app.delete('/patient-data/:id', (req, res) => {
     res.status(200).json({
         message: 'Patient deleted successfully'
     });
+});
+
+app.patch('/patient-data/:id', (req, res) => {
+
+    const { id } = req.params
+    const patientIndex = patientData.findIndex(patient => patient.id === id);
+
+    if (patientIndex === -1) {
+        return res.status(404).json({
+            message: 'Patient not found'
+        });
+    }
+
+    // const { fname, mname, lname, age, phone_number, address, birth_date, weight_lbs, height_cm, notes } = req.body;
+
+    // patientData[patientIndex].fname = fname;
+    // patientData[patientIndex].mname = mname;
+    // patientData[patientIndex].lname = lname;
+    // patientData[patientIndex].age = age;
+    // patientData[patientIndex].phone_number = phone_number;
+    // patientData[patientIndex].address = address;
+    // patientData[patientIndex].birth_date = birth_date;
+    // patientData[patientIndex].weight_lbs = weight_lbs;
+    // patientData[patientIndex].height_cm = height_cm;
+    // patientData[patientIndex].notes = notes;
+
+    const patient = patientData[patientIndex];
+
+    for(let key in req.body) {
+        if(patient.hasOwnProperty(key)) {
+            patient[key] = req.body[key];
+        }
+    }
+
+    res.status(200).json({
+        message: 'Patient updated successfully',
+        patientData: patient
+    });
+
 });
