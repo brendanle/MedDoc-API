@@ -20,7 +20,7 @@
     </div>
 
     <div class="get-patient">
-      <h2>get</h2>
+      <h2>display patients names and uuid</h2>
     </div>
 
     <div class="post-patient">
@@ -120,12 +120,79 @@
     </div>
   
     <div class="patch-patient">
-      <h2>hi</h2>
+      <h2>Patch Patient</h2>
+      <form id="patch_patient_form">
+
+        <label for="patch_patient_id">Patient UUID:</label>
+        <input type="text" id="patch_patient_id" name="patient_id" required><br><br>
+        
+        <label for="patch_fname">First name:</label>
+        <input type="text" id="patch_fname" name="fname"><br><br>
+        
+        <label for="patch_mname">Middle name:</label>
+        <input type="text" id="patch_mname" name="mname"><br><br>
+        
+        <label for="patch_lname">Last name:</label>
+        <input type="text" id="patch_lname" name="lname"><br><br>        
+        
+        <label for="patch_age">Age:</label>
+        <input type="number" id="patch_age" name="age"><br><br>
+        
+        <label for="patch_phone_number">Phone Number:</label>
+        <input type="text" id="patch_phone_number" name="phone_number"><br><br>
+        
+        <label for="patch_address">Address:</label>
+        <input type="text" id="patch_address" name="address"><br><br>
+        
+        <label for="patch_birth_date">Birth Date:</label>
+        <input type="date" id="patch_birth_date" name="birth_date"><br><br>
+        
+        <label for="patch_weight_lbs">Weight (lbs):</label>
+        <input type="number" id="patch_weight_lbs" name="weight_lbs"><br><br>
+        
+        <label for="patch_height_cm">Height (cm):</label>
+        <input type="number" id="patch_height_cm" name="height_cm"><br><br>
+        
+        <label for="patch_notes">Notes:</label>
+        <textarea id="patch_notes" name="notes" rows="5"></textarea><br><br>
+        
+        <input type="submit">
+        
+
+      </form>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+          const patch_patient_form = document.getElementById("patch_patient_form");
+          patch_patient_form.addEventListener("submit", async (event) => {
+
+            event.preventDefault();
+            const formData = new FormData(patch_patient_form);
+            const patientData = Object.fromEntries(formData);
+
+            const patientId = document.getElementById("patch_patient_id").value;
+            const response = await fetch(`http://localhost:5500/patient-data/${patientId}`, {
+              method: "PATCH",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify(patientData)
+            });
+
+            if (response.ok) {
+              alert("Patient updated successfully");
+            } else {
+              alert("Patient not updated");
+            }
+          });
+        });
+      </script>
     </div>
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        
+
         const methodSelect = document.getElementById("methods");
         const getPatient = document.querySelector(".get-patient");
         const postPatient = document.querySelector(".post-patient");
