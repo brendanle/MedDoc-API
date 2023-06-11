@@ -24,4 +24,4 @@ node server.js
 - Enhance safety measures through the use of data privatization for the API
 - Include further details for patients
 - Include an administrative dashboard to allow seamless access to the methods
-- Include a drop-down menu for user to select method of choice
+- ~~Include a drop-down menu for user to select method of choice~~
