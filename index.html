@@ -221,6 +221,12 @@
             const formData = new FormData(patch_patient_form);
             const patientData = Object.fromEntries(formData);
 
+            for (const index in patientData) {
+              if (patientData[index] === "") {
+                delete patientData[index];
+              }
+            }
+
             const patientId = document.getElementById("patch_patient_id").value;
             const response = await fetch(`http://localhost:5500/patient-data/${patientId}`, {
               method: "PATCH",
