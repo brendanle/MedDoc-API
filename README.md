@@ -21,7 +21,6 @@ node server.js
 
 ## To-Do:
 - Deploy *PUT* and ~~PATCH~~ methods
-- Rework logic behind PATCH method
 - Enhance safety measures through the use of data privatization for the API
 - Include further details for patients
 - Include an administrative dashboard to allow seamless access to the methods
@@ -30,3 +29,4 @@ node server.js
 - ~~GET method wip to display uuid, fname, lname, phone_number~~
 - ~~Include a drop-down menu for user to select method of choice~~
 - ~~Fix bug where upon refreshing the page, popup is shown saying "Failed to fetch patient data"~~
+- ~~Rework logic behind PATCH method~~
