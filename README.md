@@ -1,6 +1,5 @@
 # MedDoc API
-The MedDoc API is designed to manage and track comprehensive patient data, including essential information such as the patient's date of birth, contact details, and medical records. The API supports HTTP methods such as GET, POST, and DELETE for retrieving, creating, and deleting
-patient data. It also incorporates the UUID module to generate unique identifiers for each patient.
+The MedDoc API is designed to manage and track comprehensive patient data, including essential information such as the patient's date of birth, contact details, and medical records. The API supports HTTP methods such as GET, POST, DELETE, and PATCH for retrieving, creating, deleting and updating patient data. It also incorporates the UUID module to generate unique identifiers for each patient.
 
 ## Deployment
 To deploy this project, install the required modules
@@ -24,6 +23,7 @@ node server.js
 - Enhance safety measures through the use of data privatization for the API
 - Include further details for patients
 - Include an administrative dashboard to allow seamless access to the methods
+- function to get request upon clicking on "GET"
 
 ## Completed:
 - ~~GET method wip to display uuid, fname, lname, phone_number~~
